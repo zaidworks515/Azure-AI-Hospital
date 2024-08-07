@@ -1,0 +1,6 @@
+regex
+rapidfuzz
+Flask
+Flask-Cors
+dill
+nltk
