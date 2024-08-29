@@ -88,6 +88,6 @@ def tc_ml():
 
 if __name__ == "__main__":
     try:
-        app.run(debug=True, host='0.0.0.0', threaded=True)
+        app.run(debug=True, host='0.0.0.0', threaded=True, port=8007)
     except Exception as e:
         print(f"An error occurred: {str(e)}")
