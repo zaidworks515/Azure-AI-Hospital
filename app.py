@@ -20,17 +20,29 @@ def mdnm_ml():
 
     y_pred = loaded_pipeline.predict(input_text)
 
-    if y_pred is not None:
-        predicted_mdm = y_pred['response']
-        similar_mdnm = y_pred['similar_MDNM']
+    # if y_pred is not None:
+    #     predicted_mdm = y_pred['response']
+    #     similar_mdnm = y_pred['similar_MDNM']
 
-        filtered_similar_mdnm = list(set(mdnm for mdnm in similar_mdnm if mdnm != predicted_mdm))
-        print(f"Predicted MDNM: {y_pred['response']}")
+    #     filtered_similar_mdnm = list(set(mdnm for mdnm in similar_mdnm if mdnm != predicted_mdm))
+    #     print(f"Predicted MDNM: {y_pred['response']}")
+    #     print(f"Confidence Percentage: {y_pred['confidence_percentage']}")
+    #     print(f"Similar MDNM: {filtered_similar_mdnm}")
+        
+    #     response = jsonify({'result': y_pred['response'], 'confidence': y_pred['confidence_percentage'], 'similar_mdnm':filtered_similar_mdnm})
+        
+        
+    if y_pred is not None:
+        predicted_tc = y_pred['response']
+        similar_tc = y_pred['similar_TC']
+
+        filtered_similar_tc = list(set(tc for tc in similar_tc if tc != predicted_tc))
+        print(f"Predicted tc: {y_pred['response']}")
         print(f"Confidence Percentage: {y_pred['confidence_percentage']}")
-        print(f"Similar MDNM: {filtered_similar_mdnm}")
+        print(f"similar_TC: {filtered_similar_tc}")
         
-        response = jsonify({'result': y_pred['response'], 'confidence': y_pred['confidence_percentage'], 'similar_mdnm':filtered_similar_mdnm})
-        
+        response = jsonify({'result': y_pred['response'], 'confidence': y_pred['confidence_percentage'], 'similar_tc': filtered_similar_tc})
+            
         
     else:
         response = jsonify({'message': 'No best match found'})
